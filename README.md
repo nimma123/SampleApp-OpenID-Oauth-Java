@@ -23,7 +23,6 @@ In that light, we welcome any feedback that makes our samples apps easier to lea
 * [Running the code](#running-the-code)
 * [High Level Workflow](#high-level-workflow)
 * [How To Guides](#how-to-guides)
-* [More Information](#more-information)
 
 
 ## Requirements
@@ -121,8 +120,8 @@ OAuth will return Access Token and Access Secret which will be stored in the HTT
 * To perform the Try Buy flow, input all necessary config parameters and start the session (clicking either the "Prod", "Dev", or "Change Tokens" buttons on the Config tab)
 * Paste `https://appcenter.intuit.com/TryBuy/IA/<yourAppID>` into your browser
 * This should call the OpenID and OAuth services and redirect to the app's home page with a connected Quickbooks Account
-* 
-## How To Guides
+
+### How To Guides
 
 The following How-To guides related to implementation tasks necessary to produce a production-ready Intuit Partner Platform app (e.g. OAuth, OpenId, etc) are available:
 
