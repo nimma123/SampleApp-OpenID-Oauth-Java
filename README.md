@@ -42,7 +42,7 @@ In order to successfully run this sample app you need a few things:
 
 Once the sample app code is on your computer, you can do the following steps to run the app:
 
- 1. cd to the project direcotry
+ 1. cd to the project directory
  2. Run the command `mvn package`
  3. Run the command: `./appStart.sh`
  4. Wait until the terminal output displays `FrameworkServlet 'dispatcherServlet': initialization completed in <xx> ms`
@@ -60,8 +60,8 @@ Once the sample app code is on your computer, you can do the following steps to 
 
 ![Alt text](images/Config.png "Configurations")
 
-* The Auto Config buttons may be used to update URL's specific to Production, Devleopment.
-* If AppURL is not assigned, it will automatically populate with the host URL.
+* The Auto Config buttons may be used to update URL's specific to Production and Development environments.
+    * If AppURL is not assigned, it will automatically populate with the host URL.
 
 ![Alt text](images/autoconfig.png "Automatic Config")
 
@@ -98,7 +98,7 @@ OAuth will return Access Token and Access Secret which will be stored in the HTT
 
 ###Reconnecting and Disconnecting
 
-*Access Token and Access Token Secret can be renewed if in the appropriate time window.
+* Access Token and Access Token Secret can be renewed if in the appropriate time window.
 * Reconnect or disconnect from the Home tab.
 
 ![Alt text](images/reconnect.png "Reconnect and Disconnect")
