@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml" xmlns:ipp="">
+<head lang="en">
+    <meta charset="UTF-8"/>
+    <title>Customer</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://js.appcenter.intuit.com/Content/IA/intuit.ipp.anywhere.js"></script>
+<script src="webjars/jquery/2.0.3/jquery.min.js"></script>
+
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li><a href="/" id="homebutton">Home</a></li>
+                <li><a href="/config" id="configbutton">Config</a></li>
+                <li><a th:if="${session.qbConnect}" href="/query" id="querybutton">Query</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <!--Check session logic here-->
+                <li th:if="${#httpSession}"><a id="logoutbutton" href="/logout.htm">Logout</a></li>
+            </ul>
+        </div>
+    </div><!-- /.container-fluid -->
+</nav>
+
+<h3 class="col-xs-offset-1">Query</h3>
+<br/>
+
+<div class="row">
+    <div class="form-group col-xs-6">
+        <textarea id="queryText" class="form-control col-xs-offset-2" rows="8" name="OAuthOptions" th:inline="text">[[${session.query_JSON}]]</textarea>
+    </div>
+</div>
+
+</body>
+</html>
+

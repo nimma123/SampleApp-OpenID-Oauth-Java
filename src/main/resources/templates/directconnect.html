@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:ipp=""  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+    <title>SampleApp Direct Connect</title>
+    <link rel="stylesheet" type="text/css" href="css/intuit.css" />
+
+    <script type="text/javascript" src="https://js.appcenter.intuit.com/Content/IA/intuit.ipp.anywhere.js"></script>
+    <script type="text/javascript" th:utext="${session.oauth_options}"></script>
+
+    <script>
+        delayInvoke();
+    </script>
+
+    <script>
+        function delayInvoke() {
+            // The delay is needed to give the page time to load before calling directConnectToIntuit().
+            var t = setTimeout("invokeDirectConnect()", 500);
+        }
+        function invokeDirectConnect() {
+            // The following call is equivalent to clicking the Connect To Intuit button.
+            intuit.ipp.anywhere.directConnectToIntuit();
+        }
+    </script>
+
+</head>
+<body onload="delayInvoke()">
+</body>
+</html>

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
+<head lang="en">
+    <meta charset="UTF-8"/>
+    <title>Config</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script src="webjars/jquery/2.0.3/jquery.min.js"></script>
+
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li><a href="/" id="homebutton">Home</a></li>
+                <li><a href="/config" id="configbutton">Config</a></li>
+                <li><a th:if="${session.qbConnect}" href="/query" id="querybutton">Query</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <!--Check session logic here-->
+                <li th:if="${#httpSession}"><a id="logoutbutton" href="/logout.htm">Logout</a></li>
+            </ul>
+        </div>
+    </div><!-- /.container-fluid -->
+</nav>
+
+<div th:unless="${#httpSession}" class="alert alert-danger" role="alert">
+    <p>Please update tokens before signing on with Intuit.</p>
+</div>
+<h3 class="col-xs-offset-1">Config</h3>
+<br/>
+<br/>
+
+<form class="form-horizontal">
+    <div class="form-group">
+        <label class="col-xs-2 control-label">Auto Config</label>
+        <a class="btn btn-default col-xs-offset-1" href="/prodautoconfig" role="button" id="prodbutton">Prod</a>
+        <a class="btn btn-default" href="/devautoconfig" role="button" id="devbutton">Dev</a>
+    </div>
+</form>
+<br/>
+<form action="/changetokens" method="post" class="form-horizontal" >
+    <div class="form-group">
+        <label class="col-xs-2 control-label">App Token</label>
+        <div class="col-xs-4">
+            <input type="text" class="form-control" name="AppToken" id="appTokenInput" th:unless="${#httpSession}"/>
+            <input type="text" class="form-control" name="AppToken" id="appTokenInput" th:if="${#httpSession}" th:value="${session.apptoken}"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-xs-2 control-label">Consumer Key</label>
+        <div class="col-xs-4">
+            <input type="text" class="form-control" name="ConsumerKey" id="consumerKeyInput" th:unless="${#httpSession}"/>
+            <input type="text" class="form-control" name="ConsumerKey" id="consumerKeyInput" th:if="${#httpSession}" th:value="${session.oauth_consumer_key}"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-xs-2 control-label">Consumer Secret</label>
+        <div class="col-xs-4">
+            <input type="text" class="form-control" name="ConsumerSec" id="consumerSecInput" th:unless="${#httpSession}"/>
+            <input type="text" class="form-control" name="ConsumerSec" id="consumerSecInput" th:if="${#httpSession}" th:value="${session.oauth_consumer_sec}"/>
+        </div>
+    </div><br/>
+    <div class="form-group">
+        <label class="col-xs-2 control-label">App URL</label>
+        <div class="col-xs-4">
+            <input type="text" class="form-control" name="AppURL" id="appURLInput" th:unless="${#httpSession}"/>
+            <input type="text" class="form-control" name="AppURL" id="appURLInput" th:if="${#httpSession}" th:value="${session.app_url}"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-xs-2 control-label">OAuth URL</label>
+        <div class="col-xs-4">
+            <input type="text" class="form-control" name="OAuthURL" id="oAuthURLInput" th:unless="${#httpSession}" value="https://oauth.intuit.com"/>
+            <input type="text" class="form-control" name="OAuthURL" id="oAuthURLInput" th:if="${#httpSession}" th:value="${session.oauth_url}"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-xs-2 control-label">Appcenter URL</label>
+        <div class="col-xs-4">
+            <input type="text" class="form-control" name="AppcenterURL" id="appCenterURLInput" th:unless="${#httpSession}" value="https://appcenter.intuit.com"/>
+            <input type="text" class="form-control" name="AppcenterURL" id="appCenterURLInput" th:if="${#httpSession}" th:value="${session.appcenter_url}"/>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-xs-2 control-label">Disconnect URL</label>
+        <div class="col-xs-4">
+            <input type="text" class="form-control" name="DisconnectURL" id="disconnectURLInput" th:unless="${#httpSession}" value="https://appcenter.intuit.com/api/v1/connection/disconnect"/>
+            <input type="text" class="form-control" name="DisconnectURL" id="disconnectURLInput" th:if="${#httpSession}" th:value="${session.disconnect_url}"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-xs-2 control-label">Reconnect URL</label>
+        <div class="col-xs-4">
+            <input type="text" class="form-control" name="ReconnectURL" id="reconnectURLInput" th:unless="${#httpSession}" value="https://appcenter.intuit.com/api/v1/connection/reconnect"/>
+            <input type="text" class="form-control" name="ReconnectURL" id="reconnectURLInput" th:if="${#httpSession}" th:value="${session.reconnect_url}"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-xs-2 control-label">Quickbooks Query URL</label>
+        <div class="col-xs-4">
+            <input type="text" class="form-control" name="QBURL" id="qbURLInput" th:unless="${#httpSession}" value="https://quickbooks.api.intuit.com/v3/company/{realmid}/query?query=SELECT%20%2A%20FROM%20CompanyInfo"/>
+            <input type="text" class="form-control" name="QBURL" id="qbURLInput" th:if="${#httpSession}" th:value="${session.query_url}"/>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-xs-2 control-label">OpenID Provider URL</label>
+        <div class="col-xs-4">
+            <input type="text" class="form-control" name="OpenIDURL" id="openIDURLInput" th:unless="${#httpSession}" value="https://openid.intuit.com/OpenId/Provider"/>
+            <input type="text" class="form-control" name="OpenIDURL" id="openIDURLInput" th:if="${#httpSession}" th:value="${session.openid_url}"/>
+        </div>
+    </div>
+    <br/>
+    <div class="form-group">
+        <label class="col-xs-2 control-label">IPP Javascript File</label>
+        <div class="col-xs-4">
+            <input type="text" class="form-control" name="JSVersion" id="jsVersionInput" th:unless="${#httpSession}" value="https://js.appcenter.intuit.com/Content/IA/intuit.ipp.anywhere.js"/>
+            <input type="text" class="form-control" name="JSVersion" id="jsVersionInput" th:if="${#httpSession}" th:value="${session.jsversion}"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-xs-offset-2 col-xs-4">
+            <input id="changeTokensButton" type="submit" class="btn btn-default" value="Change Tokens"/>
+        </div>
+    </div>
+</form>
+
+
+<form class="form-horizontal" action="/changeoptions" method="post" th:if="${#httpSession}" >
+    <br/>
+    <div class="form-group">
+        <label class="col-xs-2 control-label">OAuth Options</label>
+    </div>
+    <div class="row">
+        <div class="form-group col-xs-6">
+                <textarea id="oAuthText" class="form-control col-xs-offset-2" rows="8" name="OAuthOptions" th:if="${#httpSession}" th:inline="text">[[${session.oauth_options}]]</textarea>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-xs-offset-2 col-xs-4">
+            <input id="changeOptionsButton" type="submit" class="btn btn-default" value="Change Options"/>
+        </div>
+    </div>
+</form>
+    <br/>
+
+<br/>
+<h3 class="col-xs-offset-1">OAuth Values</h3>
+<br/>
+
+<form class="form-horizontal">
+    <div class="form-group">
+        <label class="col-xs-2 control-label">Access Token</label>
+        <div class="col-xs-4">
+            <p id="accessToken" class="form-control-static" th:text="${session.accessToken}"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-xs-2 control-label">Access Secret</label>
+        <div class="col-xs-4">
+            <p id="accessSecret" class="form-control-static" th:text="${session.accessSec}"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-xs-2 control-label">RealmId</label>
+        <div class="col-xs-4">
+            <p id="realmID" class="form-control-static" th:text="${session.realmId}"></p>
+        </div>
+    </div>
+</form>
+
+<br/>
+<h3 class="col-xs-offset-1">OpenId Values</h3>
+<br/>
+
+<form class="form-horizontal">
+    <div class="form-group">
+        <label class="col-xs-2 control-label">Firstname</label>
+        <div class="col-xs-4">
+            <p id="firstName" class="form-control-static" th:text="${session.firstName}"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-xs-2 control-label">Lastname</label>
+        <div class="col-xs-4">
+            <p id="lastName" class="form-control-static" th:text="${session.lastName}"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-xs-2 control-label">E-mail</label>
+        <div class="col-xs-4">
+            <p id="email" class="form-control-static" th:text="${session.email}"></p>
+        </div>
+    </div>
+</form>
+
+
+</body>
+</html>

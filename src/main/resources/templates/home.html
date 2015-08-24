@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml" xmlns:ipp="">
+<head lang="en">
+    <meta charset="UTF-8"/>
+    <title>Homepage</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" type="text/css" th:href="@{https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css}"/>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script type="text/javascript" th:if="${session.jsversion}" th:src="${session.jsversion}"></script>
+    <script type="text/javascript" th:utext="${session.oauth_options}">
+    </script>
+</head>
+<body>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li><a href="/" id="homebutton">Home</a></li>
+                <li><a href="/config" method="get" id="configbutton">Config</a></li>
+                <li><a th:if="${session.qbConnect}" href="/query" id="querybutton">Query</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <!--Check session logic here-->
+                <li th:if="${#httpSession}"><a id="logoutbutton" href="/logout.htm">Logout</a></li>
+            </ul>
+        </div>
+    </div><!-- /.container-fluid -->
+</nav>
+
+<div class="jumbotron">
+    <h1 th:unless="${session.signIntuit}">Welcome!</h1>
+    <h1 th:if="${session.signIntuit}" th:text="'Hello, ' + ${session.firstName} + '!'">Hello, {First Name}!</h1>
+    <!--Check no session logic here -->
+    <p th:unless="${#httpSession}">Please modify the configurations before beginning</p>
+    <p th:unless="${session.signIntuit}" th:if="${#httpSession}">Please Sign in with your Intuit Account</p>
+    <form>
+        <ipp:login id="logInButton" href="/initialize.htm" type="vertical" th:if="${#httpSession}" th:unless="${session.signIntuit}"></ipp:login>
+    </form>
+    <!--Check session logic here-->
+    <div th:unless="${session.qbConnect}" th:if="${session.signIntuit}">
+        <p>Connect your QuickBooks Account to the App</p>
+        <ipp:connectToIntuit id="connectButton"></ipp:connectToIntuit>
+    </div>
+    <div th:if="${session.qbConnect} and ${session.signIntuit}">
+        <a class="btn btn-default" href="/disconnect" role="button" id="disconnectButton">Disconnect</a>
+        <a class="btn btn-default" href="/reconnect" role="button" id="reconnectButton">Reconnect</a>
+    </div>
+    <br/>
+    <div th:if="${reconnect_error} and ${session.qbConnect}"  class="alert alert-danger" role="alert">
+        <p th:text="${reconnect_error}"/>
+    </div>
+</div>
+
+
+
+</body>
+</html>
+
