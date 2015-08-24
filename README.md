@@ -59,41 +59,41 @@ Once the sample app code is on your computer, you can do the following steps to 
 * Click "Change Token".
 	* This will start an HTTP session to store session data.
 
-//TODO: CONFIG IMAGE
+![Alt text](images/Config.png "Configurations")
 
 * The Auto Config buttons may be used to update URL's specific to Production, Devleopment.
 * If AppURL is not assigned, it will automatically populate with the host URL.
 
-//TODO: AUTO CONFIG IMAGE
+![Alt text](images/autoconfig.png "Automatic Config")
 
 * Update OAuth Options.
 	* The host URL with "/request_token" appended will appear in the grantURL.
 
-//TODO: OAUTH OPTIONS IMAGE
+![Alt text](images/oauth_options.png "Oauth Options")
 
 ###OpenID Execution
 
 * Under the Home tab, click "Sign in with Intuit," and sign into Intuit account.
 
-//TODO: WELCOME IMAGE
+![Alt text](images/welcome.png "Welcome")
 
 * The user information returned with OpenID is stored in the HTTP session, and can be found under the Config Tab.
 
-//TODO: OPENID VALUES IMAGE
+![Alt text](images/openIdValues.png "OpenID Values")
 
 * After updating the OAuth Options, click "Connect to Quickbooks" under the Home tab.
 
-//TODO: CONNECTQB HOME IMAGE
+![Alt text](images/connectqbhome.png "ConnectQB Home")
 
 * The OAuth flow will begin by requesting and receiving Request Token and Request Secret. 
 * Select desired Quickbooks Company to continue and click "Authorize"
 OAuth will return Access Token and Access Secret which will be stored in the HTTP session and can be found under the Config Tab.
 
-//TODO: OAUTH VALUES IMAGE
+![Alt text](images/oauthvalues.png "OAuth Values")
 
 * Once connected to a Quickbooks Company, the Query tab will appear. This will perform queries and return data from the company.
 
-//TODO: QUERY IMAGE
+![Alt text](images/query.png "Query")
 
 * Queries can be customized by updating the "Quickbooks Query URL" under the Config tab.
 
@@ -102,11 +102,11 @@ OAuth will return Access Token and Access Secret which will be stored in the HTT
 *Access Token and Access Token Secret can be renewed if in the appropriate time window.
 * Reconnect or disconnect from the Home tab.
 
-//TODO: RECONNECT IMAGE
+![Alt text](images/reconnect.png "Reconnect and Disconnect")
 
 * If an error occurs during disconnect or reconnect, the error code and message will be displayed.
 
-//TODO: ERROR IMAGE
+![Alt text](images/error.png "Error Image")
 
 * After disconnect, the Home tab should again display the Connect to Quickbooks button.
 
@@ -114,7 +114,7 @@ OAuth will return Access Token and Access Secret which will be stored in the HTT
 
 * To end the current session, click the log out tab in the upper right. This will return you to the beginning of the process at the Config tab.
 
-//TODO: LOGOUT IMAGE
+![Alt text](images/logout.png "LogOut")
 
 ###Get App Now (Try Buy) Flow
 
