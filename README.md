@@ -60,7 +60,7 @@ Once the sample app code is on your computer, you can do the following steps to 
 
 ![Alt text](images/Config.png "Configurations")
 * Note: the IPP javascript file should be updated to the latest version such that the URL is
-https//js.appcenter.intuit.com/Content/IA/intuit.ipp.anywhere-<XXX>.js where <XXX> is replaced by the version number.  The latest version can be found <a href="https://developer.intuit.com/docs/0000_about_intuit_developer/0080_release_notes/intuit_developer_release_notes#/javascript">here</a>.
+https//js.appcenter.intuit.com/Content/IA/intuit.ipp.anywhere-XXX.js where "XXX" is replaced by the version number.  The latest version can be found <a href="https://developer.intuit.com/docs/0000_about_intuit_developer/0080_release_notes/intuit_developer_release_notes#/javascript">here</a>.
 
 
 * The Auto Config buttons may be used to update URL's specific to Production and Development tokens that are provided on developer.intuit.com.
