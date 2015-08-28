@@ -4,7 +4,7 @@ OAuth1/OpenID Java Sample App
 
 Welcome to the Intuit OAuth1/OpenID Java Sample App. 
 
-This sample app is meant to provide working examples of how to integrate the OAuth1 and OpenID services without Intuit's SDK.  Specifically, this sample application demonstrates the following:
+This sample app is meant to provide working examples of how to integrate the OAuth and OpenID services without Intuit's SDK.  Specifically, this sample application demonstrates the following:
 
 1. Implementing OpenID to allow customers to sign in with Intuit Account
 2. Implementing OAuth to connect an application to a customer's QuickBooks Online company.
@@ -126,3 +126,5 @@ OAuth will return Access Token and Access Secret which will be stored in the HTT
 The following How-To guides related to implementation tasks necessary to produce a production-ready Intuit Partner Platform app (e.g. OAuth, OpenId, etc) are available:
 
 * <a href="https://github.com/IntuitDeveloper/SampleApp-TimeTracking_Invoicing-Java/wiki/OAuth-How-To-Guide-(Java)" target="_blank">OAuth How To Guide (Java)
+* <a href="https://developer.intuit.com/docs/0050_quickbooks_api/0020_authentication_and_authorization/0011_from_the_intuit_app_center" target="_blank">Implementing Single Sign-On
+* <a href="https://developer.intuit.com/docs/0050_quickbooks_api/0020_authentication_and_authorization/connect_from_within_your_app" target="_blank">OAuth Work Flow for Connecting Within App
