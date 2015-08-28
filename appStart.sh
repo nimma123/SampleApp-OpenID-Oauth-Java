@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
 
-java -jar target/SampleApp-Java-woSDK-1.0-SNAPSHOT.jar --server.port=8080
+java -jar target/SampleApp-IntuitAnywhere-Java-1.0-SNAPSHOT.jar --server.port=8080
 
 

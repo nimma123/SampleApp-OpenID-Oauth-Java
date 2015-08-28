@@ -47,7 +47,7 @@ Once the sample app code is on your computer, you can do the following steps to 
  3. Run the command: `./appStart.sh`
  4. Wait until the terminal output displays `FrameworkServlet 'dispatcherServlet': initialization completed in <xx> ms`
  5. Open your browser and go to `http://localhost:8080`
- 6. To deploy app on a different port, from the root directory copy/paste the following command line and replace `<port_number>` with desired port: `java -jar target/Sample-App-1-1.0-SNAPSHOT.jar --server.port=<port_number>`
+ 6. To deploy app on a different port, from the root directory copy/paste the following command line and replace `<port_number>` with desired port: `java -jar target/SampleApp-IntuitAnywhere-Java-1.0-SNAPSHOT.jar --server.port=<port_number>`
 
 ## High Level Workflow
 
@@ -59,8 +59,11 @@ Once the sample app code is on your computer, you can do the following steps to 
 	* This will start an HTTP session to store session data.
 
 ![Alt text](images/Config.png "Configurations")
+* Note: the IPP javascript file should be updated to the latest version such that the URL is
+https//js.appcenter.intuit.com/Content/IA/intuit.ipp.anywhere-<XXX>.js where <XXX> is replaced by the version number.  The latest version can be found <a href="https://developer.intuit.com/docs/0000_about_intuit_developer/0080_release_notes/intuit_developer_release_notes#/javascript">here</a>.
 
-* The Auto Config buttons may be used to update URL's specific to Production and Development environments.
+
+* The Auto Config buttons may be used to update URL's specific to Production and Development tokens that are provided on developer.intuit.com.
     * If AppURL is not assigned, it will automatically populate with the host URL.
 
 ![Alt text](images/autoconfig.png "Automatic Config")
