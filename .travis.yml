@@ -1,4 +1,4 @@
 language: java
-mvn package
+script: mvn package
 jdk:
  - oraclejdk8
