@@ -1,5 +1,5 @@
 language: java
 script: mvn package
-script: ./appstart.sh
+
 jdk:
  - oraclejdk8
