@@ -1,5 +1,5 @@
 language: java
-script: mvn clean  package
+script: mvn package
 after_success: ./appStart.sh
 jdk:
  - openjdk8
