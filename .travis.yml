@@ -1,5 +1,5 @@
 language: java
 script: mvn package
 after_success: ./appStart.sh
-jdk:
- - oraclejdk8
+
+
