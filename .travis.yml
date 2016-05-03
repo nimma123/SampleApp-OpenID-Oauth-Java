@@ -1,4 +1,5 @@
 language: java
+script: ifconfig
 script: mvn clean package
 after_success: ./appStart.sh
 jdk:
